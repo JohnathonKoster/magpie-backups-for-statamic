@@ -68,7 +68,7 @@ To create a backup file of your site, simply issue the following command:
 php please magpie:backup
 ```
 
-The `backup` command will move the backup files to any configured asset containers automatically, no need to worry about it! Additionally, this command will also keep remove old backup files for you.
+The `backup` command will move the backup files to any configured asset containers automatically, no need to worry about it! Additionally, this command will also remove old backup files for you.
 
 ## Removing Old Backup Files
 
