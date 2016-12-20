@@ -14,6 +14,7 @@ class FinishedEvent
     {
         $process = new Process(null);
         $process->setWorkingDirectory(site_path());
+        $process->setTimeout(null);
         event('magpie.finished', $process);
     }
 
