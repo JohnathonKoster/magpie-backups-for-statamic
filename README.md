@@ -72,7 +72,7 @@ The `backup` command will move the backup files to any configured asset containe
 
 ## Removing Old Backup Files
 
-By default Magpie will delete backup files that are 30 days or older, or files that have already been moved to another server (more on this later).
+By default Magpie will delete backup files that are 30 days or older, or files that have already been moved to another server (see the previous section titled "Copying Backup Files").
 
 To manually remove old backup files, simply issue the following command:
 
