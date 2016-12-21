@@ -167,7 +167,7 @@ php please magpie:restore <backup_file> --keep-up
 
 ### Handling Failed Restorations
 
-Some times restoring from a backup file doesn't quite go as planned. To handle this Magpie will attempt to restore your site from the most recent *local* backup it can find. This works best when the you do not specify the `--no-backup` flag (see the previous section "Backing Up the Current State of Your Site"). Of course, this behavior can be disabled by supplying the `--no-fix` flag:
+Sometimes restoring from a backup file doesn't quite go as planned. To handle this Magpie will attempt to restore your site from the most recent *local* backup it can find. This works best when the you do not specify the `--no-backup` flag (see the previous section "Backing Up the Current State of Your Site"). Of course, this behavior can be disabled by supplying the `--no-fix` flag:
 
 ```bash
 php please magpie:restore <backup_file> --no-fix
