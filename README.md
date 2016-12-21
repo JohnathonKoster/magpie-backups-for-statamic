@@ -157,7 +157,7 @@ php please magpie:restore <backup_file> --no-backup
 
 ### Restoration and Maintenance Mode
 
-Magpie will automatically send your site into maintenance mode when a restore process is initialized. This can be disabled by supplying the `--keep-up` flag:
+Magpie will automatically send your site into maintenance mode when a restore process is initiated. This can be disabled by supplying the `--keep-up` flag:
 
 ```bash
 php please magpie:restore <backup_file> --keep-up
