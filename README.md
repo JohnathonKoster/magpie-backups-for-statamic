@@ -135,6 +135,58 @@ To automate Magpie, please read the official Statamic documentation on Tasks: [h
 
 Once you have read and understood the documentation, and completed the steps it outlined, please create a new task that runs the `magpie:backup` command at whatever interval you would like (I recommend weekly, unless you perform many site updates).
 
+## Restoring Backup Files
+
+Magpie also lets you restore your backup files. You do not have to keep track of where the backup files are located. The restore command will be able to find the backup file you are looking for as long as it exists in a configured asset container. The only information you need to prove to Magpie is the name of the backup file (including the `.zip` extension).
+
+Assuming we had a backup file named `statamic-2.1.18-1482296141.zip` we can tell Magpie to restore this by issuing the following command:
+
+```bash
+php please magpie:restore statamic-2.1.18-1482296141.zip
+```
+
+This will instruct Magpie to find the `statamic-2.1.18-1482296141.zip` backup file, even if it exists on a cloud storage system such as S3.
+
+### Backing Up the Current State of Your Site
+
+By default, before Magpie performs a restore it will create a backup of the current state of your Statamic site. You can change this behavior by supplying the `--no-backup` flag:
+
+```bash
+php please magpie:restore <backup_file> --no-backup
+```
+
+### Restoration and Maintenance Mode
+
+Magpie will automatically send your site into maintenance mode when a restore process is initialized. This can be disabled by supplying the `--keep-up` flag:
+
+```bash
+php please magpie:restore <backup_file> --keep-up
+```
+
+> Magpie will automatically bring your site out of maintenance mode once the restoration has completed.
+
+### Handling Failed Restorations
+
+Some times restoring from a backup file doesn't quite go as planned. To handle this Magpie will attempt to restore your site from the most recent *local* backup it can find. This works best when the you do not specify the `--no-backup` flag (see the previous section "Backing Up the Current State of Your Site"). Of course, this behavior can be disabled by supplying the `--no-fix` flag:
+
+```bash
+php please magpie:restore <backup_file> --no-fix
+```
+
+If you are willing to set the `--no-fix` flag, you might also want to set the `--no-backup` one as well (not recommending this though):
+
+```bash
+php please magpie:restore <backup_file> --no-fix --no-backup
+```
+
+## Where Magpie Stores Backups
+
+Magpie stores your local backup files in the `local/storage/backups` directory. This directory will be empty most of the time if you have configured Magpie to move your backup files to other storage containers (such as Amazon S3).
+
+Magpie will not attempt to handle the purging of files in your remote storage containers.
+
+Magpie also writes to the `local/storage/restores` directory when restoring your site from a previous backup. Magpie handles the clean-up in this directory so do not rely on any contents that might be in here!
+
 ## License
 
 Magpie - Backup Manager for Statamic is open-sourced software licensed under the MIT license.
