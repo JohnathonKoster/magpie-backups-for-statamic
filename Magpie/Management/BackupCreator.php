@@ -29,7 +29,8 @@ class BackupCreator
      * @var array
      */
     protected $requiredPaths = [
-        'backups'
+        'backups',
+        'restores'
     ];
 
     /**
