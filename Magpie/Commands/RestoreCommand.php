@@ -144,6 +144,13 @@ class RestoreCommand extends Command
                     return $file->getCTime();
                 })->reverse()->first();
 
+                // Do not attempt to try and automatically fix
+                // a failed restore if the backup is the same
+                // as the backup file that has just failed.
+                if ($recentPath == $this->argument('backup')) {
+                    return 0;
+                }
+
                 if ($recentPath !== null) {
                     $this->call('magpie:restore', [
                         'backup' => $recentPath->getFilename(),
