@@ -1,5 +1,7 @@
 # Magpie - Backup Manager for Statamic
 
+![](https://cloud.githubusercontent.com/assets/5232890/21529812/dc5e3510-cd01-11e6-89a7-3b2f6d33c21e.png)
+
 Magpie is a delightful Statamic addon that makes it easier for you to stash away backups of your site. Like the clever fox you are, you know the importance of keeping backups of your site on hand! Public Service Announcement: a magpie is not a fox.
 
 - [Installation](#installation)
