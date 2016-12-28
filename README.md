@@ -1,4 +1,3 @@
-# Magpie - Backup Manager for Statamic
 
 ![](https://cloud.githubusercontent.com/assets/5232890/21529812/dc5e3510-cd01-11e6-89a7-3b2f6d33c21e.png)
 
